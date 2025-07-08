@@ -7,6 +7,10 @@ A collection of technical articles and insights on AI, cybersecurity, and busine
 ### 🤖 AI & Security
 - [Securing Agentic AI in Business: Why the TriSM Framework Matters](blog-posts/2025/securing-agentic-ai-trism-framework.md) - *January 2025*
 
+### 🏗️ Infrastructure & DevOps
+- [Resolving Terraform Circular Dependencies: A Real-World AWS EKS Case Study](blog-posts/2025/terraform-circular-dependency-resolution.md) - *January 2025*
+- [Breaking the Karpenter Bootstrap Deadlock: From Complex Workarounds to Simple Solutions](blog-posts/2025/karpenter-bootstrap-deadlock-solutions.md) - *January 2025*
+
 ## About
 
 Technical writing focused on emerging technologies, security frameworks, and practical business applications. This repository showcases expertise in:
