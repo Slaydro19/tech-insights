@@ -5,7 +5,7 @@ A collection of technical articles and insights on AI, cybersecurity, and busine
 ## Featured Articles
 
 ### 🤖 AI & Security
-- [Securing Agentic AI in Business: Why the TriSM Framework Matters](blog-posts/2025/securing-agentic-ai-trism-framework.md) - *January 2025*
+- [Securing Agentic AI in Business: Why the TriSM Framework Matters](blog-posts/2025/securing-agentic-ai-trism-framework.md) - *July 2025*
 
 ## About
 
