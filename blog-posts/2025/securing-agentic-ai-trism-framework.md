@@ -1,6 +1,6 @@
 ---
 title: "Securing Agentic AI in Business: Why the TriSM Framework Matters"
-date: 2025-01-08
+date: 2025-07-08
 author: "Jalen Salgado"
 tags: [AI, Security, TriSM, Business Infrastructure, Risk Management, Agentic AI]
 category: Technical Analysis

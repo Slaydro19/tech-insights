@@ -1,6 +1,6 @@
 ---
 title: "Breaking the Karpenter Bootstrap Deadlock: From Complex Workarounds to Simple Solutions"
-date: 2025-01-08
+date: 2025-07-08
 author: "Jalen Salgado"
 tags: [Kubernetes, AWS, EKS, Karpenter, Fargate, Infrastructure, DevOps]
 category: Kubernetes Engineering

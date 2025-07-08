@@ -1,6 +1,6 @@
 ---
 title: "Resolving Terraform Circular Dependencies: A Real-World AWS EKS Case Study"
-date: 2025-01-08
+date: 2025-07-08
 author: "Jalen Salgado"
 tags: [Terraform, AWS, EKS, Infrastructure, DevOps, Circular Dependencies]
 category: Infrastructure Engineering
