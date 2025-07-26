@@ -14,12 +14,23 @@ A collection of technical articles and insights on AI, cybersecurity, and busine
 ### 🔒 Security & DevSecOps
 - [Infrastructure Security Scanning with Trivy](security-scanning/INFRASTRUCTURE-SECURITY-README.md) - *July 2025*
 
+## 🛡️ Cybersecurity Labs Portfolio
+
+Comprehensive hands-on cybersecurity expertise demonstrated through practical lab work:
+
+- **[Cybersecurity Labs Overview](cybersecurity-labs/README.md)** - Complete portfolio of network security, firewall management, VPN technologies, and security monitoring expertise
+- **[Network Security Analysis](cybersecurity-labs/network-security-analysis/README.md)** - Wireshark mastery, traffic analysis, and security assessment
+- **[Firewall Management](cybersecurity-labs/firewall-management/README.md)** - pfSense and Windows Defender firewall configuration and optimization
+- **[VPN Security](cybersecurity-labs/vpn-security/README.md)** - IPsec and OpenVPN implementation, configuration, and security testing
+- **[Security Monitoring](cybersecurity-labs/security-monitoring/README.md)** - SIEM implementation, intrusion detection, and incident response
+
 ## About
 
 Technical writing focused on emerging technologies, security frameworks, and practical business applications. This repository showcases expertise in:
 
 - **Artificial Intelligence & Machine Learning**
-- **Cybersecurity Frameworks**
+- **Cybersecurity Frameworks & Implementation**
+- **Network Security & Monitoring**
 - **DevSecOps & Container Security**
 - **Business Infrastructure**
 - **Risk Management**
@@ -27,6 +38,7 @@ Technical writing focused on emerging technologies, security frameworks, and pra
 
 ## Recent Topics
 
+- **Hands-on Cybersecurity**: Comprehensive lab work in network security, firewall management, and VPN technologies
 - **Container Security**: Trivy vulnerability scanning for enterprise infrastructure
 - **Agentic AI Security**: Analysis of Trust, Risk, and Security Management (TriSM) framework
 - **Real-world Implementation**: Terraform and Claude AI integration experiences
@@ -38,4 +50,4 @@ Technical writing focused on emerging technologies, security frameworks, and pra
 For technical discussions or collaboration opportunities, feel free to reach out.
 
 ---
-*Professional technical writing portfolio showcasing expertise in AI security and business transformation.*
+*Professional technical writing portfolio showcasing expertise in AI security, cybersecurity implementation, and business transformation.*
