@@ -24,6 +24,12 @@ Comprehensive hands-on cybersecurity expertise demonstrated through practical la
 - **[VPN Security](cybersecurity-labs/vpn-security/README.md)** - IPsec and OpenVPN implementation, configuration, and security testing
 - **[Security Monitoring](cybersecurity-labs/security-monitoring/README.md)** - SIEM implementation, intrusion detection, and incident response
 
+## 🏗️ Enterprise Infrastructure Experience
+
+Real-world hands-on experience with enterprise-grade network infrastructure:
+
+- **[Network Infrastructure Experience - PatternAgentic.AI Internship](network-infrastructure-experience.md)** - Hands-on experience with Palo Alto firewalls, Cisco switches, Dell servers, and data center operations
+
 ## About
 
 Technical writing focused on emerging technologies, security frameworks, and practical business applications. This repository showcases expertise in:
@@ -31,6 +37,7 @@ Technical writing focused on emerging technologies, security frameworks, and pra
 - **Artificial Intelligence & Machine Learning**
 - **Cybersecurity Frameworks & Implementation**
 - **Network Security & Monitoring**
+- **Enterprise Infrastructure & Data Center Operations**
 - **DevSecOps & Container Security**
 - **Business Infrastructure**
 - **Risk Management**
@@ -38,6 +45,7 @@ Technical writing focused on emerging technologies, security frameworks, and pra
 
 ## Recent Topics
 
+- **Enterprise Infrastructure**: Hands-on experience with Palo Alto, Cisco, and Dell enterprise equipment at PatternAgentic.AI
 - **Hands-on Cybersecurity**: Comprehensive lab work in network security, firewall management, and VPN technologies
 - **Container Security**: Trivy vulnerability scanning for enterprise infrastructure
 - **Agentic AI Security**: Analysis of Trust, Risk, and Security Management (TriSM) framework
@@ -50,4 +58,4 @@ Technical writing focused on emerging technologies, security frameworks, and pra
 For technical discussions or collaboration opportunities, feel free to reach out.
 
 ---
-*Professional technical writing portfolio showcasing expertise in AI security, cybersecurity implementation, and business transformation.*
+*Professional technical writing portfolio showcasing expertise in AI security, cybersecurity implementation, enterprise infrastructure, and business transformation.*
