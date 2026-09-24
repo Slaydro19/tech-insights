@@ -9,9 +9,20 @@ reading_time: 7 minutes
 
 *Network design adapted from a reference architecture by [Gerard O'Brien](https://www.youtube.com/watch?v=XIvn0ZDSmKA&list=PL3ljjyal211AbTqlxSo6CGBiVqsXw8wrp). The build, debugging, and fixes below are my own.*
 
+**TL;DR:** A VM on a VLAN-tagged bridge failed to boot, then failed to get a DHCP lease, even though every visible pfSense and Proxmox setting was correct. Tracing the frame hop-by-hop with `tcpdump` found the real fault: stale tap-interface state on the firewall VM that a config review couldn't reveal — fixed with a VM restart, then made durable so it would survive a reboot. Getting the Kali VM's activity into the SIEM was a second, unrelated failure chain (agent packaging incompatibility, then a hand-edited XML syntax error), isolated and fixed independently. Full trace below.
+
 ## Context
 
 I built a segmented cybersecurity homelab on Proxmox — a pfSense firewall/router, multiple VLANs for trust-zone separation, and a tool stack (Kali, Wazuh, Security Onion, TheHive, Cortex, and others) split across them — based on a published reference architecture I adapted to my own hardware and Proxmox version. Standing it up surfaced a chain of problems that had nothing to do with the reference design being wrong, and everything to do with details that don't show up in a walkthrough: bridge configuration defaults, VLAN tagging behavior, and how Proxmox's virtual networking actually moves a tagged frame from a VM to a firewall VM.
+
+**The reference design** (Gerard O'Brien's original architecture and tool stack):
+
+![Reference network and tool-stack design by Gerard O'Brien](images/homelab-reference-design-obrien.png)
+*Reference design by [Gerard O'Brien](https://www.youtube.com/watch?v=XIvn0ZDSmKA&list=PL3ljjyal211AbTqlxSo6CGBiVqsXw8wrp) — not my own work, shown for context on what I built from.*
+
+**My build** (IP scheme, VLANs, and DHCP ranges as actually deployed):
+
+![My homelab network topology: Proxmox host, pfSense firewall, and 4 segmented VLANs](images/homelab-network-topology.png)
 
 ## The First Failure: a VM That Wouldn't Boot
 
