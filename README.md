@@ -22,7 +22,7 @@ Company-specific details (internal repo names, endpoints, credentials, architect
 
 Hands-on lab work in a segmented Proxmox/pfSense environment I fully control — used to practice the analysis and defense techniques referenced in the case studies above, with full documentation freedom since it's entirely my own infrastructure. The network design is adapted from a reference architecture by [Gerard O'Brien](https://www.youtube.com/watch?v=XIvn0ZDSmKA&list=PL3ljjyal211AbTqlxSo6CGBiVqsXw8wrp); the write-ups below cover my own build, debugging, and configuration work on top of it.
 
-- [Tracing a Silent VLAN Drop Through Proxmox, pfSense, and a SIEM Agent](case-studies/homelab-vlan-trunk-debugging.md) — a multi-layer networking failure, traced hop by hop from bridge config to a hand-edited XML typo
+- [Building and Operating a Segmented Homelab](case-studies/homelab-network-lab.md) — VLAN/SIEM debugging traced hop by hop, a remote-access failure under time pressure, and containing an autonomous pentesting agent with a dedicated VLAN
 - [Network Traffic Analysis: Finding What a Packet Capture Actually Proves](labs/network-security-analysis.md)
 - [Multi-Zone Firewall Design: Segmentation as the Actual Control](labs/firewall-management.md)
 - [IPsec vs. OpenVPN: Testing Two VPN Stacks Against the Same Threat Model](labs/vpn-security.md)

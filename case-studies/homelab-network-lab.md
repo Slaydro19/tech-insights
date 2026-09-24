@@ -1,15 +1,15 @@
 ---
-title: "Tracing a Silent VLAN Drop Through Proxmox, pfSense, and a SIEM Agent"
+title: "Building and Operating a Segmented Homelab: VLAN Debugging, Remote Access, and Adding an Offensive-AI VLAN"
 category: Homelab / Network Engineering
-date: 2026-01
-reading_time: 7 minutes
+date: 2026-01 to 2026-03
+reading_time: 10 minutes
 ---
 
-# Tracing a Silent VLAN Drop Through Proxmox, pfSense, and a SIEM Agent
+# Building and Operating a Segmented Homelab: VLAN Debugging, Remote Access, and Adding an Offensive-AI VLAN
 
 *Network design adapted from a reference architecture by [Gerard O'Brien](https://www.youtube.com/watch?v=XIvn0ZDSmKA&list=PL3ljjyal211AbTqlxSo6CGBiVqsXw8wrp). The build, debugging, and fixes below are my own.*
 
-**TL;DR:** A VM on a VLAN-tagged bridge failed to boot, then failed to get a DHCP lease, even though every visible pfSense and Proxmox setting was correct. Tracing the frame hop-by-hop with `tcpdump` found the real fault: stale tap-interface state on the firewall VM that a config review couldn't reveal — fixed with a VM restart, then made durable so it would survive a reboot. Getting the Kali VM's activity into the SIEM was a second, unrelated failure chain (agent packaging incompatibility, then a hand-edited XML syntax error), isolated and fixed independently. Full trace below.
+**TL;DR:** This covers three phases of running the same lab. First, standing it up: a VM on a VLAN-tagged bridge failed to boot, then failed to get a DHCP lease, even though every visible pfSense and Proxmox setting was correct — traced hop-by-hop with `tcpdump` to stale tap-interface state a config review couldn't reveal. Getting the Kali VM into the SIEM was a second, unrelated failure chain (agent packaging, then a hand-edited XML syntax error). Second, a remote-access failure right before a live CTF that forced a fast, evidence-based decision under time pressure. Third, adding a new VLAN for an autonomous pentesting agent, where the actual engineering question was containment — not whether the tool worked, but what it could reach if it went wrong.
 
 ## Context
 
@@ -24,7 +24,9 @@ I built a segmented cybersecurity homelab on Proxmox — a pfSense firewall/rout
 
 ![My homelab network topology: Proxmox host, pfSense firewall, and 4 segmented VLANs](images/homelab-network-topology.png)
 
-## The First Failure: a VM That Wouldn't Boot
+## Part 1: Standing It Up
+
+### The First Failure: a VM That Wouldn't Boot
 
 The first sign of trouble was mundane — a VM on the tools VLAN failed to start, with Proxmox reporting no physical interface on the bridge and a bridge network script failure. A second VM on the same bridge, with no VLAN tag set, started fine. That comparison was the actual diagnostic: the difference wasn't the VM, it was the tag.
 
@@ -32,7 +34,7 @@ The bridge itself wasn't configured as VLAN-aware. Proxmox will silently let you
 
 **What I didn't do:** the easy way out was to just drop the VLAN tag and avoid the problem — the initial suggestion I got when troubleshooting this. I didn't take it, because dropping the tag would have defeated the actual point of the exercise: trust-zone segmentation. A working VM on the wrong network isn't a fix.
 
-## The Second Failure: Booted, No IP
+### The Second Failure: Booted, No IP
 
 With the VM running, the next problem was that it couldn't obtain a DHCP lease. This forced a methodical check of every layer between the VM and the DHCP server, because the obvious suspects (DHCP scope, firewall rule, VLAN-to-interface mapping) all turned out to be correctly configured:
 
@@ -42,7 +44,7 @@ With the VM running, the next problem was that it couldn't obtain a DHCP lease. 
 
 Every piece of pfSense's configuration matched what it should have been. That's the uncomfortable case in networking troubleshooting — when the configuration you can see is correct, and the problem is somewhere you haven't looked yet.
 
-## The Long Packet Trace
+### The Long Packet Trace
 
 At that point I stopped trusting configuration review and started tracing the actual frame, hop by hop, with `tcpdump` at each layer:
 
@@ -58,7 +60,7 @@ That's a genuinely confusing state to be in — every individual link in the cha
 
 **Making it durable:** a manually-run `bridge vlan add` command doesn't survive a reboot, so once the fix was confirmed, I moved it into the bridge's persistent configuration (a `post-up` hook) so a future reboot wouldn't silently regress the whole VLAN back to the same failure.
 
-## The Third Failure: An Agent That Wouldn't Ship Logs
+### The Third Failure: An Agent That Wouldn't Ship Logs
 
 With networking solid, the next gap was operational: the Kali VM's activity wasn't showing up in the SIEM at all. This split into two separate problems that had to be isolated one at a time rather than assumed to be the same root cause:
 
@@ -70,9 +72,32 @@ With networking solid, the next gap was operational: the Kali VM's activity wasn
 
 **The actual fix was to stop trying to install a full agent and use syslog forwarding instead** — a lighter integration the firewall supported natively. That path had its own failure: hand-editing the SIEM manager's XML configuration to add the syslog input introduced small, hard-to-spot syntax errors (a stray closing tag, a malformed attribute, a block placed outside its enclosing section). The service's own error output on restart was vague — effectively just "config didn't load" with a process name and a signal number, no line reference. Running an XML linter against the file directly pointed at the exact malformed lines, which the service's own logging never did.
 
+## Part 2: A Remote-Access Failure Under Time Pressure
+
+A few weeks after the lab was stable, I lost remote access to it right before I needed to leave for an in-person CTF competition — the Proxmox web UI and SSH were both unreachable over my Tailscale connection to the lab.
+
+Rather than start debugging Tailscale itself with the clock running, I checked one thing first: whether SSH still worked over the lab's local network address. It did. That single check answered the only question that actually mattered in the moment — I was still physically at home, with a window to fix Tailscale (or fall back to local access if I couldn't) before leaving, rather than being locked out remotely with no way to intervene until I got back.
+
+**Why this is worth including even though it's a small incident:** it's a decision-making example, not just a networking one. Under time pressure, the fastest useful action wasn't "start troubleshooting the failing thing" — it was "establish what I can still do," which reframed a scary "I'm locked out" moment into a bounded, known problem with time to address it.
+
+## Part 3: Adding an Autonomous Pentesting Tool Without Widening the Blast Radius
+
+Later, I added PENTagi (an autonomous AI-driven penetration-testing agent) to the lab. The interesting engineering question wasn't installation — it was where it should live on the network.
+
+The lab already had a VLAN dedicated to manual offensive tooling (Kali and similar). The obvious shortcut would have been to drop PENTagi onto that same VLAN — it's already the "attack tools" zone, so why not. I didn't do that, because that VLAN's existing firewall rules were written for a human operator, not an autonomous agent. An autonomous tool that can chain actions on its own is a materially different risk than a human running the same tools by hand: it can act faster, longer, and without a person watching each step to notice something has gone wrong.
+
+**The actual fix:** a new, dedicated VLAN, with an explicit default posture:
+- **Blocked outbound** to every other VLAN in the lab, by default.
+- **Allowed outbound to the internet**, since the tool needs it to function.
+- **Temporary, explicit allow rules** added only while actively testing against a specific target VLAN, and removed afterward rather than left standing.
+
+The design principle was containment-first: assume the tool could misbehave, and make sure "misbehaving" has nowhere to go except the one path I'd deliberately opened, for only as long as I needed it open.
+
 ## Finding
 
-The pattern across every failure here was the same: **the configuration that was visible was correct, and the actual fault was in state that isn't visible from reading a config file** — a bridge that hadn't been told it was VLAN-aware, tap interfaces that had gone stale relative to a config change made after boot, an XML typo a generic error message couldn't localize. None of these were "the tutorial was wrong" problems. They were "the tutorial's environment had different defaults or state than mine" problems, which is a different and more useful thing to get good at diagnosing.
+The pattern across the Part 1 failures was consistent: **the configuration that was visible was correct, and the actual fault was in state that isn't visible from reading a config file** — a bridge that hadn't been told it was VLAN-aware, tap interfaces that had gone stale relative to a config change made after boot, an XML typo a generic error message couldn't localize. None of these were "the tutorial was wrong" problems. They were "the tutorial's environment had different defaults or state than mine" problems, which is a different and more useful thing to get good at diagnosing.
+
+The later phases were a different kind of lesson: Part 2 was about what to do when you don't have time to fully diagnose a problem — establish the boundary of what's actually broken before trying to fix it. Part 3 was about treating a new tool's *default* network placement as a design decision with real consequences, not a convenience choice — especially once the tool is autonomous rather than human-operated.
 
 ## Impact / Skills Demonstrated
 
@@ -81,5 +106,7 @@ The pattern across every failure here was the same: **the configuration that was
 - **Isolating compound failures instead of treating them as one problem** — the SIEM-visibility issue was actually two independent failures (agent packaging/build environment, then a hand-edited config syntax error) that needed separate root-causing rather than one fix.
 - **Recognizing a dead-end path early** — catching a potential agent/manager version mismatch before installing it, and abandoning a source-build path that had no viable route forward on that OS version, rather than continuing to force a specific solution past the point it made sense.
 - **Making fixes durable, not just working** — moving a manually-applied VLAN fix into persistent configuration so it would survive a reboot, instead of leaving a fix that only worked until the next restart.
+- **Triaging under time pressure** — establishing what still worked (local access) before diagnosing what didn't (remote access), to turn an unbounded problem into a bounded one before a hard deadline.
+- **Threat-modeling a new tool by its behavior, not its category** — recognizing that an autonomous agent needed stricter network containment than a human running the same class of tools, and designing a default-deny VLAN with narrow, temporary exceptions rather than reusing an existing zone out of convenience.
 
-**Technologies:** Proxmox VE (bridge/VLAN networking), pfSense, 802.1Q VLAN tagging, `tcpdump`, Wazuh (agent and manager), syslog, XML configuration debugging.
+**Technologies:** Proxmox VE (bridge/VLAN networking), pfSense, 802.1Q VLAN tagging, `tcpdump`, Wazuh (agent and manager), syslog, XML configuration debugging, Tailscale, PENTagi (autonomous pentesting agent).
