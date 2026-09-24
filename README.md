@@ -1,61 +1,44 @@
-# Tech Writing Portfolio
+# Jalen Salgado — Security & Infrastructure Portfolio
 
-A collection of technical articles and insights on AI, cybersecurity, and business infrastructure.
+Case studies and technical write-ups from security research, QA methodology, and infrastructure engineering work. Each piece follows the same structure: context, method, finding, and the skills or impact it demonstrates — not a list of tools I've touched.
 
-## Featured Articles
+Company-specific details (internal repo names, endpoints, credentials, architecture diagrams) are intentionally omitted throughout, consistent with confidentiality obligations to past and current employers. Findings are described by vulnerability class and methodology, which is what's actually transferable.
 
-### AI & Security
-- [Securing Agentic AI in Business: Why the TriSM Framework Matters](blog-posts/2025/securing-agentic-ai-trism-framework.md) - *July 2025*
+## Case Studies
+
+### Application & AI Security
+- [Finding and Closing a Two-Pipe Credential Leak in Application Logs](case-studies/jwt-log-leak-cwe532.md) — CWE-532 log-leak finding and remediation, including catching an earlier fix attempt's incorrect assumption
+- [An 8-Category Framework for Auditing LLM-Driven Backend Services](case-studies/security-audit-methodology.md) — security audit methodology adapted for LLM-specific risk (prompt injection, hallucinated structured output)
+
+### QA & Testing Methodology
+- [Building a Security-First QA Process for a Multi-Stage Data Pipeline](case-studies/security-testing-methodology.md) — V-Model testing with a mandatory threat-surface step and security escalation path
 
 ### Infrastructure & DevOps
-- [Resolving Terraform Circular Dependencies: A Real-World AWS EKS Case Study](blog-posts/2025/terraform-circular-dependency-resolution.md) - *July 2025*
-- [Breaking the Karpenter Bootstrap Deadlock: From Complex Workarounds to Simple Solutions](blog-posts/2025/karpenter-bootstrap-deadlock-solutions.md) - *July 2025*
+- [Adding Non-Blocking Vulnerability Scanning to an Infrastructure Pipeline](case-studies/infrastructure-security-scanning.md) — Trivy-based CI/CD scanning designed for a team without dedicated security staff
+- [Building Multi-Layer Observability for a Multi-Agent LLM Platform](case-studies/observability-tracing-pipeline.md) — hybrid LangSmith + OpenTelemetry tracing, cross-service trace correlation
+- [Resolving Terraform Circular Dependencies: A Real-World AWS EKS Case Study](case-studies/terraform-eks-circular-dependency.md) — diagnosing and fixing a `terraform destroy` deadlock
+- [Breaking the Karpenter Bootstrap Deadlock](case-studies/karpenter-bootstrap-deadlock.md) — distinguishing a scheduling issue from a configuration issue in EKS/Karpenter
 
-### Security & DevSecOps
-- [Infrastructure Security Scanning with Trivy](security-scanning/INFRASTRUCTURE-SECURITY-README.md) - *July 2025*
+## Homelab
 
-## Cybersecurity Labs Portfolio
+Hands-on lab work in a segmented Proxmox/pfSense environment I fully control — used to practice the analysis and defense techniques referenced in the case studies above, with full documentation freedom since it's entirely my own infrastructure.
 
-Comprehensive hands-on cybersecurity expertise demonstrated through practical lab work:
+- [Network Traffic Analysis: Finding What a Packet Capture Actually Proves](labs/network-security-analysis.md)
+- [Multi-Zone Firewall Design: Segmentation as the Actual Control](labs/firewall-management.md)
+- [IPsec vs. OpenVPN: Testing Two VPN Stacks Against the Same Threat Model](labs/vpn-security.md)
+- [From Raw Logs to Actionable Alerts: Building a SIEM Pipeline That Doesn't Cry Wolf](labs/security-monitoring.md)
 
-- **[Cybersecurity Labs Overview](cybersecurity-labs/README.md)** - Complete portfolio of network security, firewall management, VPN technologies, and security monitoring expertise
-- **[Network Security Analysis](cybersecurity-labs/network-security-analysis/README.md)** - Wireshark mastery, traffic analysis, and security assessment
-- **[Firewall Management](cybersecurity-labs/firewall-management/README.md)** - pfSense and Windows Defender firewall configuration and optimization
-- **[VPN Security](cybersecurity-labs/vpn-security/README.md)** - IPsec and OpenVPN implementation, configuration, and security testing
-- **[Security Monitoring](cybersecurity-labs/security-monitoring/README.md)** - SIEM implementation, intrusion detection, and incident response
+## Essays
 
-## Enterprise Infrastructure Experience
+- [Securing Agentic AI in Business: Why the TriSM Framework Matters](essays/trism-framework.md) — Trust, Risk, and Security Management framework applied to multi-agent LLM systems
 
-Real-world hands-on experience with enterprise-grade network infrastructure:
+## Other
 
-- **[Enterprise Network & Data Center Infrastructure Experience](network-infrastructure-experience.md)** - Hands-on exposure to enterprise firewalls, switching, and rack-mounted server infrastructure during an internship
+- [Enterprise Network & Data Center Infrastructure Experience](network-infrastructure-experience.md) — hands-on exposure to enterprise firewall, switching, and server hardware during an internship
 
 ## About
 
-Technical writing focused on emerging technologies, security frameworks, and practical business applications. This repository showcases expertise in:
-
-- **Artificial Intelligence & Machine Learning**
-- **Cybersecurity Frameworks & Implementation**
-- **Network Security & Monitoring**
-- **Enterprise Infrastructure & Data Center Operations**
-- **DevSecOps & Container Security**
-- **Business Infrastructure**
-- **Risk Management**
-- **Cloud Technologies**
-
-## Recent Topics
-
-- **Enterprise Infrastructure**: Hands-on experience with enterprise firewall, switching, and server equipment during an internship
-- **Hands-on Cybersecurity**: Comprehensive lab work in network security, firewall management, and VPN technologies
-- **Container Security**: Trivy vulnerability scanning for enterprise infrastructure
-- **Agentic AI Security**: Analysis of Trust, Risk, and Security Management (TriSM) framework
-- **Real-world Implementation**: Terraform and Claude AI integration experiences
-- **Multi-Agent Systems**: Machine collectives and orchestration patterns
-- **DevSecOps Integration**: Non-blocking security scanning in CI/CD pipelines
-
-## Contact
-
-For technical discussions or collaboration opportunities, feel free to reach out.
+Cybersecurity student (Spokane Falls Community College) and QA/Security Intern with hands-on experience across application security, LLM/agentic-system security, QA methodology, and infrastructure observability. Background summary and current focus areas: [linkedin.com/in/jalensalgado19](https://linkedin.com/in/jalensalgado19).
 
 ---
-*Professional technical writing portfolio showcasing expertise in AI security, cybersecurity implementation, enterprise infrastructure, and business transformation.*
+*Technical writing and case studies reflecting real project work, generalized to protect employer confidentiality while preserving the actual methodology and findings.*
