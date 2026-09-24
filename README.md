@@ -15,7 +15,6 @@ Company-specific details (internal repo names, endpoints, credentials, architect
 
 ### Infrastructure & DevOps
 - [Adding Non-Blocking Vulnerability Scanning to an Infrastructure Pipeline](case-studies/infrastructure-security-scanning.md) — Trivy-based CI/CD scanning designed for a team without dedicated security staff
-- [Building Multi-Layer Observability for a Multi-Agent LLM Platform](case-studies/observability-tracing-pipeline.md) — hybrid LangSmith + OpenTelemetry tracing, cross-service trace correlation
 - [Resolving Terraform Circular Dependencies: A Real-World AWS EKS Case Study](case-studies/terraform-eks-circular-dependency.md) — diagnosing and fixing a `terraform destroy` deadlock
 - [Breaking the Karpenter Bootstrap Deadlock](case-studies/karpenter-bootstrap-deadlock.md) — distinguishing a scheduling issue from a configuration issue in EKS/Karpenter
 
