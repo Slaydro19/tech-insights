@@ -15,7 +15,7 @@ description: "An analysis of Trust, Risk, and Security Management (TriSM) framew
 
 As AI evolves from traditional rule-based systems to sophisticated Agentic Models, Agentic AI introduces a collaborative approach, powered by advanced tools and large language models (LLMs). This evolution shifts the playing field from isolated, single-minded agents to interconnected systems that grow in complexity and autonomy. The result is the rise of machine collectives capable of emergent, decentralized behaviors beyond the scope of individual agents.
 
-But with this shift come pressing concerns: How will these systems prove to be safe? Are there threats from outside attacks that these agents could face? What happens when we give Agentic AI full control can we trust their decision-making? And can we guarantee the data safety of our customers who rely on these services? These questions must be carefully considered as we implement Agentic AI, I believe the Trust, Risk, and Security Management (TriSM) framework provides the best path forward for businesses to adopt safe and reliable AI practices.
+But with this shift come pressing concerns: How will these systems prove to be safe? Are there threats from outside attacks that these agents could face? What happens when we give Agentic AI full control, can we trust their decision-making? And can we guarantee the data safety of our customers who rely on these services? These questions must be carefully considered as we implement Agentic AI. I believe the Trust, Risk, and Security Management (TriSM) framework provides the best path forward for businesses to adopt safe and reliable AI practices.
 
 ## 2. What is Agentic AI?
 
@@ -33,13 +33,13 @@ This example highlights the dangers of trusting AI-generated decisions without p
 
 Agentic AI is increasingly adopted in multi-agent packages. Instead of a single LLM working alone, multiple specialized agents are linked together. Each agent handles different parts of a process, collaborating and communicating to solve complex problems or manage larger systems.
 
-Think of it like a symphony: an orchestrator—a master AI or coordination system—guides individual AI agents, each with their own role and expertise. Together, they perform complex, harmonious "music" (tasks or decisions) that no single player could achieve alone. This coordinated teamwork enables systems to manage sophisticated processes with flexibility and precision, allowing companies to innovate and build faster than ever before.
+Think of it like a symphony: an orchestrator, a master AI or coordination system, guides individual AI agents, each with their own role and expertise. Together, they perform complex, harmonious "music" (tasks or decisions) that no single player could achieve alone. This coordinated teamwork enables systems to manage sophisticated processes with flexibility and precision, allowing companies to innovate and build faster than ever before.
 
-With Autonomous Agentic agents, these pose new risks, risks that might shy away potential investors and customers. Data leaks, mishandling of information, AI Hallucinations these are just a few of the major risks that consumers think about when giving more of their personal data to companies.
+With Autonomous Agentic agents come new risks, risks that might shy away potential investors and customers. Data leaks, mishandling of information, and AI hallucinations are just a few of the major risks that consumers think about when giving more of their personal data to companies.
 
 ## 5. Introducing the TriSM Framework
 
-This is where the Trust, Risk, and Security Management (TriSM) framework comes in. TriSM is not software or a program AI runs on. Rather, it is a structured framework—a rulebook or game plan—that guides businesses on how to safely and responsibly integrate AI.
+This is where the Trust, Risk, and Security Management (TriSM) framework comes in. TriSM is not software or a program AI runs on. Rather, it is a structured framework, a rulebook or game plan, that guides businesses on how to safely and responsibly integrate AI.
 
 Think of it like the safety codes and inspections used when constructing a skyscraper. You don't just stack bricks randomly; you follow blueprints and have inspectors check everything to prevent collapse. TriSM serves as those safety protocols for AI.
 
@@ -51,7 +51,7 @@ TriSM focuses on three pillars:
 
 ## 6. Implementing Agentic AI Safely in Business
 
-Another crucial element is context engineering — feeding AI the right background and history so it can make informed decisions. Our team ran into this firsthand with Claude. We were troubleshooting a circular dependency in our Terraform plan, but when we moved to a new chat and gave it the same info, it told us the issue was already fixed and gave us suggestions based on that assumption. It was interesting because we hadn't actually resolved it, the AI just didn't have the full context.
+Another crucial element is context engineering: feeding AI the right background and history so it can make informed decisions. Our team ran into this firsthand with Claude. We were troubleshooting a circular dependency in our Terraform plan, but when we moved to a new chat and gave it the same info, it told us the issue was already fixed and gave us suggestions based on that assumption. It was interesting because we hadn't actually resolved it, the AI just didn't have the full context.
 
 That experience demonstrated how important context really is. Without it, AI can make false assumptions or give bad advice. TriSM treats providing proper context as a core part of risk management, and this is a good example of why.
 
@@ -61,13 +61,13 @@ Successful implementation also requires ongoing monitoring, auditing, and collab
 
 As Agentic AI continues to evolve and become more deeply integrated into business infrastructure, frameworks like TriSM will only grow in importance. Businesses that start preparing now by establishing trust, risk, and security management will gain a competitive advantage, unlocking AI's full potential safely and responsibly.
 
-On the other side, this can slow down most businesses — especially startups. One of their biggest advantages is how fast they can develop and ship. But having to pause for things like collaborating with security teams, keeping human oversight in the loop, and building context pipelines adds extra steps that can interfere with development. It can feel like a hindrance, but in reality, it's a necessary investment if we want to move forward responsibly and unlock AI's full potential.
+On the other side, this can slow down most businesses, especially startups. One of their biggest advantages is how fast they can develop and ship. But having to pause for things like collaborating with security teams, keeping human oversight in the loop, and building context pipelines adds extra steps that can interfere with development. It can feel like a hindrance, but in reality, it's a necessary investment if we want to move forward responsibly and unlock AI's full potential.
 
 ## 8. Conclusion
 
 Agentic AI represents a transformative leap in how businesses operate, offering unprecedented flexibility, autonomy, and collaboration. However, this power comes with significant risks to trust, security, and compliance. Frameworks like TriSM provide the necessary safety net, balancing AI's strengths with human insight and governance.
 
-By adopting TriSM, organizations can confidently harness the promise of Agentic AI while protecting their systems, data, and customers. Our real-world Terraform experience underscores that TriSM isn't optional—it's essential for unlocking AI's full potential without compromising safety.
+By adopting TriSM, organizations can confidently harness the promise of Agentic AI while protecting their systems, data, and customers. Our real-world Terraform experience underscores that TriSM isn't optional. It's essential for unlocking AI's full potential without compromising safety.
 
 ---
 

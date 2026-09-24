@@ -168,7 +168,7 @@ After implementing the separate security group rules approach:
 
 Circular dependencies in Terraform are common but solvable. The key is understanding the dependency chain and choosing the right approach for your specific use case. In our case, separating security group rules provided the best balance of security, maintainability, and operational reliability.
 
-For infrastructure teams facing similar issues, remember that the goal isn't just to make the code work—it's to create maintainable, secure, and operationally sound infrastructure that can be reliably managed throughout its lifecycle.
+For infrastructure teams facing similar issues, remember that the goal isn't just to make the code work. It's to create maintainable, secure, and operationally sound infrastructure that can be reliably managed throughout its lifecycle.
 
 ---
 

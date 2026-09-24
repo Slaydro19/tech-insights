@@ -4,9 +4,9 @@ During an internship at an AI infrastructure startup, I gained hands-on exposure
 
 ## Hands-On Exposure
 
-- **Next-generation firewalls** — physical placement, perimeter defense strategy, and how NGFW threat-prevention features fit into a broader network security posture
-- **Enterprise switching** — high-density (48-port class) Layer 2/3 switches, stacking for scalability, and port/VLAN planning in a multi-vendor environment
-- **Rack-mounted server infrastructure** — rack layout, cable management, and redundant power planning in a live data center
+- **Next-generation firewalls**: physical placement, perimeter defense strategy, and how NGFW threat-prevention features fit into a broader network security posture
+- **Enterprise switching**: high-density (48-port class) Layer 2/3 switches, stacking for scalability, and port/VLAN planning in a multi-vendor environment
+- **Rack-mounted server infrastructure**: rack layout, cable management, and redundant power planning in a live data center
 
 ## What I Took Away
 
@@ -26,4 +26,4 @@ During an internship at an AI infrastructure startup, I gained hands-on exposure
 
 ---
 
-*This experience runs alongside my [homelab work](cybersecurity-labs/README.md), where I replicate similar segmentation and monitoring patterns (Proxmox/pfSense, VLANs, Wazuh/Security Onion) in an environment I fully control and can document in depth.*
+*This experience runs alongside my [homelab work](README.md#homelab), where I replicate similar segmentation and monitoring patterns (Proxmox/pfSense, VLANs, Wazuh/Security Onion) in an environment I fully control and can document in depth.*

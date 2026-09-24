@@ -12,14 +12,14 @@ A flat home network gives you almost none of the constraints a real enterprise n
 
 ## Method
 
-- **Designed the zone architecture first, rules second.** Before writing any firewall rule, I mapped which zones should never be able to initiate contact with which others (e.g., DMZ services should never be able to reach the internal LAN, only respond to what reached them) — the segmentation model, not the rule list, is the actual security control.
-- **Applied least-privilege as a default-deny baseline**, then added explicit allow rules per service — rather than starting from an open policy and trying to lock it down after the fact, which reliably leaves gaps.
+- **Designed the zone architecture first, rules second.** Before writing any firewall rule, I mapped which zones should never be able to initiate contact with which others (e.g., DMZ services should never be able to reach the internal LAN, only respond to what reached them). The segmentation model, not the rule list, is the actual security control.
+- **Applied least-privilege as a default-deny baseline**, then added explicit allow rules per service, rather than starting from an open policy and trying to lock it down after the fact, which reliably leaves gaps.
 - **Coordinated firewall rules with VPN policy** so remote-access traffic terminated into the correct zone rather than being implicitly trusted as "internal" once it crossed the VPN boundary.
-- **Extended the same segmentation logic to host-based firewalling** (Windows Defender Firewall) for defense in depth — a host inside an already-segmented zone still shouldn't trust every other host in that zone by default.
+- **Extended the same segmentation logic to host-based firewalling** (Windows Defender Firewall) for defense in depth. A host inside an already-segmented zone still shouldn't trust every other host in that zone by default.
 
 ## Finding
 
-The recurring failure mode I was testing against wasn't "a rule is misconfigured" — it was "the zone model itself has an implicit trust assumption nobody wrote down." A rule set can be internally consistent and still be wrong if the underlying segmentation design assumed the wrong thing about which zones should trust which.
+The recurring failure mode I was testing against wasn't "a rule is misconfigured." It was "the zone model itself has an implicit trust assumption nobody wrote down." A rule set can be internally consistent and still be wrong if the underlying segmentation design assumed the wrong thing about which zones should trust which.
 
 ## Skills Demonstrated
 
