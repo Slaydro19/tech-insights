@@ -1,11 +1,11 @@
 ---
-title: "Designing a Zero-Friction Kiosk Without Giving Up on Security"
+title: "Threat Modeling and Hardening a Kiosk-Style Internal Application"
 category: Application Security / Full-Stack Engineering
 date: 2026-02 to 2026-03
 reading_time: 9 minutes
 ---
 
-# Designing a Zero-Friction Kiosk Without Giving Up on Security
+# Threat Modeling and Hardening a Kiosk-Style Internal Application
 
 *Built for an internal team at an AI infrastructure startup. Details that could identify the employer, the specific third-party systems involved, or any individual are intentionally generalized or omitted below — the security reasoning and debugging is what's described in detail.*
 

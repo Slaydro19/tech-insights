@@ -9,7 +9,7 @@ Company-specific details (internal repo names, endpoints, credentials, architect
 ### Application & AI Security
 - [Finding and Closing a Two-Pipe Credential Leak in Application Logs](case-studies/jwt-log-leak-cwe532.md) — CWE-532 log-leak finding and remediation, including catching an earlier fix attempt's incorrect assumption
 - [An 8-Category Framework for Auditing LLM-Driven Backend Services](case-studies/security-audit-methodology.md) — security audit methodology adapted for LLM-specific risk (prompt injection, hallucinated structured output)
-- [Designing a Zero-Friction Kiosk Without Giving Up on Security](case-studies/attendance-kiosk-security.md) — threat-modeling a no-login kiosk, and a security control that silently broke its own safety net
+- [Threat Modeling and Hardening a Kiosk-Style Internal Application](case-studies/attendance-kiosk-security.md) — threat-modeling a no-login kiosk, and a security control that silently broke its own safety net
 
 ### QA & Testing Methodology
 - [Building a Security-First QA Process for a Multi-Stage Data Pipeline](case-studies/security-testing-methodology.md) — V-Model testing with a mandatory threat-surface step and security escalation path
