@@ -2,7 +2,7 @@
 
 This section demonstrates hands-on cybersecurity expertise through comprehensive lab work in network security, firewall management, VPN technologies, and security monitoring. These materials showcase practical skills in enterprise security tools and methodologies.
 
-## 🎯 Core Competencies Demonstrated
+## Core Competencies Demonstrated
 
 ### Network Security Analysis
 - **Deep Packet Inspection**: Advanced Wireshark analysis for protocol examination and threat detection
@@ -24,7 +24,7 @@ This section demonstrates hands-on cybersecurity expertise through comprehensive
 - **Intrusion Detection**: Snort IDS configuration and alert management
 - **Attack Simulation**: Metasploit and Infection Monkey for controlled security testing
 
-## 📊 Technical Skills Matrix
+## Technical Skills Matrix
 
 | Technology | Proficiency | Application |
 |------------|-------------|-------------|
@@ -35,7 +35,7 @@ This section demonstrates hands-on cybersecurity expertise through comprehensive
 | **Metasploit** | Intermediate | Security testing, vulnerability exploitation |
 | **VPN Protocols** | Advanced | IPsec, OpenVPN configuration and security |
 
-## 🔍 Key Projects & Insights
+## Key Projects & Insights
 
 ### Network Traffic Analysis Mastery
 - Analyzed complex network protocols (TCP/IP, HTTP/HTTPS, DNS, ARP)
@@ -57,7 +57,7 @@ This section demonstrates hands-on cybersecurity expertise through comprehensive
 - Analyzed VPN traffic encryption and identified potential vulnerabilities
 - Implemented secure file transfer protocols over VPN connections
 
-## 🛡️ Real-World Applications
+## Real-World Applications
 
 ### Business Impact
 - **Risk Reduction**: Implemented security controls that significantly reduce attack surface
@@ -69,7 +69,7 @@ This section demonstrates hands-on cybersecurity expertise through comprehensive
 - **Tool Integration**: Successfully integrated multiple security tools into cohesive monitoring systems
 - **Documentation**: Created detailed technical documentation and procedures
 
-## 📁 Portfolio Structure
+## Portfolio Structure
 
 ```
 cybersecurity-labs/
@@ -80,14 +80,14 @@ cybersecurity-labs/
 └── lab-reports/                   # Supporting documentation and evidence
 ```
 
-## 🎓 Continuous Learning & Development
+## Continuous Learning & Development
 
 - **Industry Knowledge**: Staying current with emerging threats and attack vectors
 - **Tool Proficiency**: Continuously expanding expertise with new security technologies
 - **Best Practices**: Following industry standards and security frameworks
 - **Technical Growth**: Building expertise in cybersecurity through hands-on practice
 
-## 💡 Areas of Interest
+## Areas of Interest
 
 Based on this lab work and demonstrated expertise, areas of particular interest include:
 - **Security Analysis**: Network monitoring, incident detection, and threat analysis

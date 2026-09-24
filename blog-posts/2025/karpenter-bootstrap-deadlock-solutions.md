@@ -137,11 +137,11 @@ kubectl get pods -n karpenter -o wide
 ### Check Infrastructure Status
 ```bash
 # Cluster status
-aws eks describe-cluster --name pattern-infra-eks-dev
+aws eks describe-cluster --name your-cluster
 
 # Fargate profile status  
 aws eks describe-fargate-profile \
-  --cluster-name pattern-infra-eks-dev \
+  --cluster-name your-cluster \
   --fargate-profile-name karpenter
 
 # Node breakdown

@@ -2,7 +2,7 @@
 
 This section demonstrates advanced capabilities in network traffic analysis, security assessment, and threat detection using industry-standard tools and methodologies.
 
-## 🔍 Core Competencies
+## Core Competencies
 
 ### Wireshark Traffic Analysis
 - **Protocol Deep Dive**: Expert-level analysis of TCP/IP, HTTP/HTTPS, DNS, and ARP protocols
@@ -16,7 +16,7 @@ This section demonstrates advanced capabilities in network traffic analysis, sec
 - **Traffic Pattern Recognition**: Distinguishing between normal and suspicious network behavior
 - **Vulnerability Identification**: Systematic approach to finding and documenting security weaknesses
 
-## 🛠️ Technical Skills Demonstrated
+## Technical Skills Demonstrated
 
 ### Wireshark Mastery
 ```
@@ -38,7 +38,7 @@ Tools & Techniques:
 • Security reporting and documentation
 ```
 
-## 📊 Key Findings & Insights
+## Key Findings & Insights
 
 ### Protocol Security Analysis
 - **Encryption Gaps**: Identified unencrypted HTTP traffic vulnerable to eavesdropping and MITM attacks
@@ -51,7 +51,7 @@ Tools & Techniques:
 - **Performance Impact**: Understanding of how different scan types affect network performance
 - **Security Monitoring**: Established baselines for normal vs. suspicious traffic patterns
 
-## 🔒 Security Implications
+## Security Implications
 
 ### Risk Assessment
 - **Unencrypted Communications**: Documented risks of plaintext protocols in enterprise environments
@@ -63,7 +63,7 @@ Tools & Techniques:
 - **Tool Integration**: Effective use of multiple analysis tools for complete visibility
 - **Documentation Standards**: Detailed technical reporting for security findings
 
-## 💡 Real-World Applications
+## Real-World Applications
 
 ### Enterprise Security
 - **Network Monitoring**: Continuous traffic analysis for threat detection
@@ -76,7 +76,7 @@ Tools & Techniques:
 - **Tool Selection**: Evaluation and recommendation of security monitoring tools
 - **Team Training**: Knowledge transfer on traffic analysis techniques
 
-## 📈 Continuous Improvement
+## Continuous Improvement
 
 ### Advanced Techniques
 - **Behavioral Analysis**: Development of network behavior baselines

@@ -70,10 +70,8 @@ cidr_blocks = [var.vpc_cidr]
 ```
 
 **Trade-offs:**
-- ✅ Completely eliminates circular dependency
-- ✅ Simple one-line change
-- ✅ Guaranteed to fix destroy issues
-- ❌ Less granular security (allows access from entire VPC instead of just EKS nodes)
+- Pros: completely eliminates circular dependency; simple one-line change; guaranteed to fix destroy issues
+- Cons: less granular security (allows access from entire VPC instead of just EKS nodes)
 
 ### Solution 2: Separate Security Group Rules (Our Choice)
 
@@ -83,20 +81,16 @@ cidr_blocks = [var.vpc_cidr]
 3. Use `depends_on` to control resource creation order
 
 **Trade-offs:**
-- ✅ Maintains granular security (security group to security group)
-- ✅ Eliminates circular dependency through explicit ordering
-- ✅ Best practice for complex Terraform dependencies
-- ❌ More complex code structure (multiple resources instead of one)
+- Pros: maintains granular security (security group to security group); eliminates circular dependency through explicit ordering; best practice for complex Terraform dependencies
+- Cons: more complex code structure (multiple resources instead of one)
 
 ### Solution 3: Move VPC Endpoints to Separate Module
 
 **Approach:** Extract all VPC endpoint resources into their own module with proper dependency management.
 
 **Trade-offs:**
-- ✅ Clean separation of concerns
-- ✅ Easier dependency management
-- ❌ More files to maintain
-- ❌ Additional complexity
+- Pros: clean separation of concerns; easier dependency management
+- Cons: more files to maintain; additional complexity
 
 ### Solution 4: Use Data Sources
 
@@ -112,9 +106,8 @@ resource "aws_vpc_endpoint" "example" {
 ```
 
 **Trade-offs:**
-- ✅ Breaks the circular dependency
-- ❌ Requires the security group to already exist
-- ❌ Fragile if naming changes
+- Pros: breaks the circular dependency
+- Cons: requires the security group to already exist; fragile if naming changes
 
 ## Implementation: Separate Security Group Rules
 
@@ -166,10 +159,10 @@ Always test `terraform destroy` in development environments. Many circular depen
 
 After implementing the separate security group rules approach:
 
-1. **✅ terraform plan**: Clean execution
-2. **✅ terraform apply**: All resources created successfully  
-3. **✅ terraform destroy**: Complete destruction without timeouts
-4. **✅ Security posture**: Maintained granular access controls
+1. **terraform plan**: Clean execution
+2. **terraform apply**: All resources created successfully  
+3. **terraform destroy**: Complete destruction without timeouts
+4. **Security posture**: Maintained granular access controls
 
 ## Conclusion
 
